@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProyectoAutos.Presentacion
 {
-    public partial class Form1 : Form
+    public partial class MenuPrincipalForm : Form
     {
-        public Form1()
+        public MenuPrincipalForm()
         {
             InitializeComponent();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

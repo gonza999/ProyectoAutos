@@ -43,5 +43,15 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProyectoAutos.Datos\ProyectoAutos.Datos.csproj">
+      <Project>{1c00dd3b-ad74-44eb-a714-8ba3bd1731a8}</Project>
+      <Name>ProyectoAutos.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProyectoAutos.Entidades\ProyectoAutos.Entidades.csproj">
+      <Project>{0feb0726-d69f-460e-9253-38faa9ee0219}</Project>
+      <Name>ProyectoAutos.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
