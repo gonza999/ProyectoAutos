@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Entities\Auto.cs" />
     <Compile Include="Entities\Marca.cs" />
+    <Compile Include="Entities\Tipo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

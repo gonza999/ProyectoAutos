@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProyectoAutos.Presentacion
 {
-    public partial class MenuPrincipalForm : Form
+    public partial class MenuPrincipalForm : MetroFramework.Forms.MetroForm
     {
         public MenuPrincipalForm()
         {
@@ -20,6 +20,17 @@ namespace ProyectoAutos.Presentacion
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void SalirMetroTile_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MarcasMetroTile_Click(object sender, EventArgs e)
+        {
+            MarcasForm frm = new MarcasForm();
+            frm.ShowDialog(this);
         }
     }
 }
