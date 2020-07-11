@@ -103,6 +103,16 @@ namespace ProyectoAutos.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Aceptar {
+            get {
+                object obj = ResourceManager.GetObject("Aceptar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AgregarAE {
             get {
                 object obj = ResourceManager.GetObject("AgregarAE", resourceCulture);
@@ -116,6 +126,16 @@ namespace ProyectoAutos.Presentacion.Properties {
         internal static System.Drawing.Bitmap Cancelar {
             get {
                 object obj = ResourceManager.GetObject("Cancelar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cancelar1 {
+            get {
+                object obj = ResourceManager.GetObject("Cancelar1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

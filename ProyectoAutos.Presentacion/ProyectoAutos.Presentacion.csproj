@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MarcasAEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcasAEForm.Designer.cs">
+      <DependentUpon>MarcasAEForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MarcasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MarcasAEForm.resx">
+      <DependentUpon>MarcasAEForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MarcasForm.resx">
       <DependentUpon>MarcasForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +140,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AgregarAE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aceptar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancelar1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

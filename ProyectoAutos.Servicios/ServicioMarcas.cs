@@ -20,5 +20,20 @@ namespace ProyectoAutos.Servicios
         {
             return repositorio.GetMarcas();
         }
+
+        public void Borrar(int marcaId)
+        {
+            repositorio.Borrar(marcaId);
+        }
+
+        public void Editar(Marca marca)
+        {
+            repositorio.Editar(marca);
+        }
+
+        public void Nuevo(Marca marca)
+        {
+            repositorio.Nuevo(marca);
+        }
     }
 }

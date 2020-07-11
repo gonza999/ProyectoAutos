@@ -33,11 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.DatosMetroGrid = new MetroFramework.Controls.MetroGrid();
+            this.cmnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.NuevoMetroButton = new MetroFramework.Controls.MetroButton();
             this.CerrarMetroButton = new MetroFramework.Controls.MetroButton();
-            this.cmnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.cmnEditar = new System.Windows.Forms.DataGridViewImageColumn();
             this.metroPanel1.SuspendLayout();
@@ -70,7 +70,7 @@
             this.DatosMetroGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -82,9 +82,9 @@
             this.cmnBorrar,
             this.cmnEditar});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -94,6 +94,7 @@
             this.DatosMetroGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DatosMetroGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.DatosMetroGrid.Location = new System.Drawing.Point(0, 0);
+            this.DatosMetroGrid.MultiSelect = false;
             this.DatosMetroGrid.Name = "DatosMetroGrid";
             this.DatosMetroGrid.ReadOnly = true;
             this.DatosMetroGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -105,10 +106,19 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DatosMetroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DatosMetroGrid.RowHeadersVisible = false;
             this.DatosMetroGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DatosMetroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosMetroGrid.Size = new System.Drawing.Size(560, 370);
             this.DatosMetroGrid.TabIndex = 2;
+            this.DatosMetroGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosMetroGrid_CellContentClick);
+            // 
+            // cmnMarca
+            // 
+            this.cmnMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnMarca.HeaderText = "Marca";
+            this.cmnMarca.Name = "cmnMarca";
+            this.cmnMarca.ReadOnly = true;
             // 
             // dataGridViewImageColumn1
             // 
@@ -124,15 +134,16 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ReadOnly = true;
             // 
-            // metroButton2
+            // NuevoMetroButton
             // 
-            this.metroButton2.BackgroundImage = global::ProyectoAutos.Presentacion.Properties.Resources.AgregarAE;
-            this.metroButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.metroButton2.Location = new System.Drawing.Point(509, 20);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(27, 25);
-            this.metroButton2.TabIndex = 1;
-            this.metroButton2.UseSelectable = true;
+            this.NuevoMetroButton.BackgroundImage = global::ProyectoAutos.Presentacion.Properties.Resources.AgregarAE;
+            this.NuevoMetroButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.NuevoMetroButton.Location = new System.Drawing.Point(509, 20);
+            this.NuevoMetroButton.Name = "NuevoMetroButton";
+            this.NuevoMetroButton.Size = new System.Drawing.Size(27, 25);
+            this.NuevoMetroButton.TabIndex = 1;
+            this.NuevoMetroButton.UseSelectable = true;
+            this.NuevoMetroButton.Click += new System.EventHandler(this.NuevoMetroButton_Click);
             // 
             // CerrarMetroButton
             // 
@@ -145,13 +156,6 @@
             this.CerrarMetroButton.TabIndex = 1;
             this.CerrarMetroButton.UseSelectable = true;
             this.CerrarMetroButton.Click += new System.EventHandler(this.CerrarMetroButton_Click);
-            // 
-            // cmnMarca
-            // 
-            this.cmnMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnMarca.HeaderText = "Marca";
-            this.cmnMarca.Name = "cmnMarca";
-            this.cmnMarca.ReadOnly = true;
             // 
             // cmnBorrar
             // 
@@ -173,7 +177,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.NuevoMetroButton);
             this.Controls.Add(this.CerrarMetroButton);
             this.Controls.Add(this.metroPanel1);
             this.Name = "MarcasForm";
@@ -192,7 +196,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private MetroFramework.Controls.MetroButton CerrarMetroButton;
-        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton NuevoMetroButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnMarca;
         private System.Windows.Forms.DataGridViewImageColumn cmnBorrar;
         private System.Windows.Forms.DataGridViewImageColumn cmnEditar;
