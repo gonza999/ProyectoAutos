@@ -1,5 +1,9 @@
 ﻿using MetroFramework;
+using ProyectoAutos.Entidades.DTOs.Marca;
 using ProyectoAutos.Entidades.Entities;
+using ProyectoAutos.Entidades.Mapas;
+using ProyectoAutos.Presentacion.Helpers;
+using ProyectoAutos.Reportes;
 using ProyectoAutos.Servicios;
 using System;
 using System.Collections.Generic;
@@ -10,7 +14,7 @@ namespace ProyectoAutos.Presentacion
     public partial class MarcasForm : MetroFramework.Forms.MetroForm
     {
         private ServicioMarcas servicio;
-        List<Marca> lista;
+        List<MarcaDto> lista;
         public MarcasForm()
         {
             InitializeComponent();
@@ -23,7 +27,19 @@ namespace ProyectoAutos.Presentacion
 
         private void MarcasForm_Load(object sender, System.EventArgs e)
         {
-            servicio = new ServicioMarcas();
+            try
+            {
+                servicio = new ServicioMarcas();
+                LoadRegistros();
+            }
+            catch (Exception ex)
+            {
+                Helper.Helper.Mensaje(this, ex.Message, TipoDeCuadro.Error);
+            }
+        }
+
+        private void LoadRegistros()
+        {
             lista = servicio.GetMarcas();
             MostrarDatosEnGrilla();
         }
@@ -44,7 +60,7 @@ namespace ProyectoAutos.Presentacion
             DatosMetroGrid.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, Marca marca)
+        private void SetearFila(DataGridViewRow r, MarcaDto marca)
         {
             r.Cells[cmnMarca.Index].Value = marca.Nombre;
             r.Tag = marca;
@@ -63,47 +79,54 @@ namespace ProyectoAutos.Presentacion
             if (e.ColumnIndex == 1)
             {
                 DataGridViewRow r = DatosMetroGrid.SelectedRows[0];
-                Marca marca = (Marca)r.Tag;
-                DialogResult dr = MetroMessageBox.Show(this, $"Desea borrar la marca {marca.Nombre}?",
-                    "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                MarcaDto marca = (MarcaDto)r.Tag;
+                DialogResult dr = Helper.Helper.Mensaje(this, $"Desea borrar la marca {marca.Nombre}?");
                 if (dr == DialogResult.Yes)
                 {
                     try
                     {
                         servicio.Borrar(marca.MarcaId);
                         DatosMetroGrid.Rows.Remove(r);
-                        MetroMessageBox.Show(this, "Borrado con exito",
-                    "Borrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Helper.Helper.Mensaje(this, "Registro borrado", TipoDeCuadro.Success);
                     }
                     catch (Exception ex)
                     {
-                        MetroMessageBox.Show(this, ex.Message,
-"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Helper.Helper.Mensaje(this, ex.Message, TipoDeCuadro.Error);
                     }
                 }
             }
             if (e.ColumnIndex == 2)
             {
                 DataGridViewRow r = DatosMetroGrid.SelectedRows[0];
-                Marca marca = (Marca)r.Tag;
+                MarcaDto marcaDto = (MarcaDto)r.Tag;
+                //MarcaDto marcaClon = (MarcaDto)marca.Clone();
                 MarcasAEForm frm = new MarcasAEForm();
                 frm.Text = "Editar";
-                frm.SetMarca(marca);
+                frm.SetMarca(marcaDto);
                 DialogResult dr = frm.ShowDialog(this);
                 if (dr == DialogResult.OK)
                 {
                     try
                     {
-                        marca = frm.GetMarca();
-                        servicio.Editar(marca);
-                        SetearFila(r,marca);
-                        MetroMessageBox.Show(this, "Editado con exito",
-                    "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        marcaDto = frm.GetMarca();
+                        if (!servicio.Existe(marcaDto))
+                        {
+                            servicio.Editar(marcaDto);
+                            SetearFila(r, marcaDto);
+                            Helper.Helper.Mensaje(this, "Registro editado", TipoDeCuadro.Success);
+                        }
+                        else
+                        {
+                            //SetearFila(r, marcaClon);
+                            LoadRegistros();
+                            Helper.Helper.Mensaje(this, "Registro repetido", TipoDeCuadro.Error);
+                        }
                     }
                     catch (Exception ex)
                     {
-                        MetroMessageBox.Show(this, ex.Message,
-"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //SetearFila(r, marcaClon);
+                        LoadRegistros();
+                        Helper.Helper.Mensaje(this, ex.Message, TipoDeCuadro.Error);
                     }
                 }
             }
@@ -118,20 +141,36 @@ namespace ProyectoAutos.Presentacion
             {
                 try
                 {
-                    var marca = frm.GetMarca();
-                    servicio.Nuevo(marca);
-                    var r=ConstruirFila();
-                    SetearFila(r,marca);
-                    AgregarFila(r);
-                    MetroMessageBox.Show(this, "Agregado con exito",
-                "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MarcaDto marcaDto = frm.GetMarca();
+                    if (!servicio.Existe(marcaDto))
+                    {
+                        servicio.Agregar(marcaDto);
+                        var r = ConstruirFila();
+                        SetearFila(r, marcaDto);
+                        AgregarFila(r);
+                        Helper.Helper.Mensaje(this, "Registro agregado", TipoDeCuadro.Success);
+
+                    }
+                    else
+                    {
+                        Helper.Helper.Mensaje(this, "Registro repetido", TipoDeCuadro.Error);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MetroMessageBox.Show(this, ex.Message,
-"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Helper.Helper.Mensaje(this, ex.Message, TipoDeCuadro.Error);
                 }
             }
+        }
+
+        private void ReporteMetroButton_Click(object sender, EventArgs e)
+        {
+            //lista = servicio.GetMarcas();
+            //ManejadorDeReportes manejador = new ManejadorDeReportes();
+            //marcasReporteGeneral rpt = manejador.GetReporteGeneralMarcas(lista);
+            //ReportesForm frm = new ReportesForm();
+            //frm.SetReporte(rpt);
+            //frm.ShowDialog(this);
         }
     }
 }

@@ -143,6 +143,26 @@ namespace ProyectoAutos.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap car_50px {
+            get {
+                object obj = ResourceManager.GetObject("car_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chevrolet_50px {
+            get {
+                object obj = ResourceManager.GetObject("chevrolet_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_file_28px {
             get {
                 object obj = ResourceManager.GetObject("delete_file_28px", resourceCulture);
@@ -156,6 +176,26 @@ namespace ProyectoAutos.Presentacion.Properties {
         internal static System.Drawing.Bitmap edit_file_28px {
             get {
                 object obj = ResourceManager.GetObject("edit_file_28px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap print_28px {
+            get {
+                object obj = ResourceManager.GetObject("print_28px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap traffic_jam_50px {
+            get {
+                object obj = ResourceManager.GetObject("traffic_jam_50px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -32,5 +32,11 @@ namespace ProyectoAutos.Presentacion
             MarcasForm frm = new MarcasForm();
             frm.ShowDialog(this);
         }
+
+        private void TiposMetroTile_Click(object sender, EventArgs e)
+        {
+            TiposForm frm = new TiposForm();
+            frm.ShowDialog(this);
+        }
     }
 }

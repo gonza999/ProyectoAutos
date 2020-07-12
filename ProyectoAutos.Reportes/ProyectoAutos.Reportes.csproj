@@ -41,7 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManejadorDatosMarcas.cs" />
+    <Compile Include="ManejadorDeReportes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProyectoAutos.Entidades\ProyectoAutos.Entidades.csproj">
+      <Project>{0FEB0726-D69F-460E-9253-38FAA9EE0219}</Project>
+      <Name>ProyectoAutos.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

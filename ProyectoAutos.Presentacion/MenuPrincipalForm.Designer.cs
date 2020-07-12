@@ -89,12 +89,13 @@
             this.TiposMetroTile.TabIndex = 4;
             this.TiposMetroTile.Text = "Tipos";
             this.TiposMetroTile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.TiposMetroTile.TileImage = global::ProyectoAutos.Presentacion.Properties.Resources._0;
+            this.TiposMetroTile.TileImage = global::ProyectoAutos.Presentacion.Properties.Resources.car_50px;
             this.TiposMetroTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.TiposMetroTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.TiposMetroTile.UseCustomBackColor = true;
             this.TiposMetroTile.UseSelectable = true;
             this.TiposMetroTile.UseTileImage = true;
+            this.TiposMetroTile.Click += new System.EventHandler(this.TiposMetroTile_Click);
             // 
             // MarcasMetroTile
             // 
@@ -106,7 +107,7 @@
             this.MarcasMetroTile.TabIndex = 3;
             this.MarcasMetroTile.Text = "Marcas";
             this.MarcasMetroTile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MarcasMetroTile.TileImage = global::ProyectoAutos.Presentacion.Properties.Resources._9879;
+            this.MarcasMetroTile.TileImage = global::ProyectoAutos.Presentacion.Properties.Resources.chevrolet_50px;
             this.MarcasMetroTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.MarcasMetroTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.MarcasMetroTile.UseCustomBackColor = true;
@@ -141,7 +142,7 @@
             this.AutosMetroTile.TabIndex = 2;
             this.AutosMetroTile.Text = "Autos";
             this.AutosMetroTile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AutosMetroTile.TileImage = global::ProyectoAutos.Presentacion.Properties.Resources._654;
+            this.AutosMetroTile.TileImage = global::ProyectoAutos.Presentacion.Properties.Resources.traffic_jam_50px;
             this.AutosMetroTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.AutosMetroTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.AutosMetroTile.UseCustomBackColor = true;

@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\TipoDeCuadro.cs" />
     <Compile Include="MarcasAEForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +77,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesForm.Designer.cs">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TiposAEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiposAEForm.Designer.cs">
+      <DependentUpon>TiposAEForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TiposForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiposForm.Designer.cs">
+      <DependentUpon>TiposForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MarcasAEForm.resx">
       <DependentUpon>MarcasAEForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +107,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TiposAEForm.resx">
+      <DependentUpon>TiposAEForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TiposForm.resx">
+      <DependentUpon>TiposForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -111,6 +137,10 @@
     <ProjectReference Include="..\ProyectoAutos.Entidades\ProyectoAutos.Entidades.csproj">
       <Project>{0feb0726-d69f-460e-9253-38faa9ee0219}</Project>
       <Name>ProyectoAutos.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProyectoAutos.Reportes\ProyectoAutos.Reportes.csproj">
+      <Project>{BF8C343B-DF6B-4216-BA38-0FB552FA52B5}</Project>
+      <Name>ProyectoAutos.Reportes</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProyectoAutos.Servicios\ProyectoAutos.Servicios.csproj">
       <Project>{4024cca1-e967-42f1-b219-4af06f10bc68}</Project>
@@ -146,6 +176,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cancelar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chevrolet_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traffic_jam_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print_28px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

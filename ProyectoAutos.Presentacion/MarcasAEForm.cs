@@ -1,4 +1,5 @@
 ﻿using MetroFramework;
+using ProyectoAutos.Entidades.DTOs.Marca;
 using ProyectoAutos.Entidades.Entities;
 using System;
 using System.Windows.Forms;
@@ -23,13 +24,13 @@ namespace ProyectoAutos.Presentacion
         {
             DialogResult=DialogResult.Cancel;
         }
-        private Marca marca;
-        internal void SetMarca(Marca marca)
+        private MarcaDto marca;
+        internal void SetMarca(MarcaDto marca)
         {
             this.marca = marca;
         }
 
-        internal Marca GetMarca()
+        internal MarcaDto GetMarca()
         {
             return marca;
         }
@@ -40,7 +41,7 @@ namespace ProyectoAutos.Presentacion
             {
                 if (marca==null)
                 {
-                    marca = new Marca();
+                    marca = new MarcaDto();
                 }
                 marca.Nombre = marcaMetroTextBox.Text;
                 DialogResult=DialogResult.OK;

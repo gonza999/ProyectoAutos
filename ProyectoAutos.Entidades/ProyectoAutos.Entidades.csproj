@@ -41,13 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\Marca\MarcaDto.cs" />
+    <Compile Include="DTOs\Tipo\TipoDto.cs" />
     <Compile Include="Entities\Auto.cs" />
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\Tipo.cs" />
+    <Compile Include="Mapas\Mapeador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTOs\" />
+    <Folder Include="DTOs\Auto\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
