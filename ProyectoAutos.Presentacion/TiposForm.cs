@@ -3,6 +3,7 @@ using ProyectoAutos.Entidades.DTOs.Tipo;
 using ProyectoAutos.Entidades.Entities;
 using ProyectoAutos.Presentacion.Helper;
 using ProyectoAutos.Presentacion.Helpers;
+using ProyectoAutos.Reportes;
 using ProyectoAutos.Servicios;
 using System;
 using System.Collections.Generic;
@@ -163,6 +164,16 @@ namespace ProyectoAutos.Presentacion
                     }
                 }
             }
+        }
+
+        private void ReporteMetroButton_Click(object sender, EventArgs e)
+        {
+            lista = servicio.GetLista();
+            ManejadorDeReportes manejador = new ManejadorDeReportes();
+            TiposReporte rpt = manejador.GetReporteGeneralTipos(lista);
+            ReportesForm frm = new ReportesForm();
+            frm.SetReporte(rpt);
+            frm.ShowDialog(this);
         }
     }
 }

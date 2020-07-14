@@ -165,12 +165,12 @@ namespace ProyectoAutos.Presentacion
 
         private void ReporteMetroButton_Click(object sender, EventArgs e)
         {
-            //lista = servicio.GetMarcas();
-            //ManejadorDeReportes manejador = new ManejadorDeReportes();
-            //marcasReporteGeneral rpt = manejador.GetReporteGeneralMarcas(lista);
-            //ReportesForm frm = new ReportesForm();
-            //frm.SetReporte(rpt);
-            //frm.ShowDialog(this);
+            lista = servicio.GetMarcas();
+            ManejadorDeReportes manejador = new ManejadorDeReportes();
+            MarcasReporte rpt = manejador.GetReporteGeneralMarcas(lista);
+            ReportesForm frm = new ReportesForm();
+            frm.SetReporte(rpt);
+            frm.ShowDialog(this);
         }
     }
 }

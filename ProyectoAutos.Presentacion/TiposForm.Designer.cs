@@ -158,6 +158,7 @@
             this.ReporteMetroButton.Size = new System.Drawing.Size(27, 25);
             this.ReporteMetroButton.TabIndex = 4;
             this.ReporteMetroButton.UseSelectable = true;
+            this.ReporteMetroButton.Click += new System.EventHandler(this.ReporteMetroButton_Click);
             // 
             // NuevoMetroButton
             // 
